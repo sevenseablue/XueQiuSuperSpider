@@ -64,6 +64,7 @@ public class WallSLiveNewsMapper extends AbstractMapper<String, String> {
         StringBuffer sb = new StringBuffer();
 
         for (int i = start; i <= end; i++) {
+            System.out.println(i);
             String target = URLMapper.WALLSTREETCN_LIVENEWS.toString();
             //status=published&order=-created_at&page=3&channelId=1&extractImg=1&extractText=1
             RequestParaBuilder builder = new RequestParaBuilder(target)
@@ -93,8 +94,8 @@ public class WallSLiveNewsMapper extends AbstractMapper<String, String> {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        int start = 1;
-        int end = 3;
+        int start = 2130;
+        int end = 6470;
         String path = "/work/data/wallstreetcn/livenews." + start + "." + end + ".txt";
         WallSLiveNewsMapper wsnm = new WallSLiveNewsMapper();
         wsnm.writeFiles(start, end, path);
