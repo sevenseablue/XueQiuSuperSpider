@@ -1,10 +1,9 @@
 package org.decaywood.utils;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * @author: decaywood
@@ -42,6 +41,49 @@ public abstract class DateParser {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static Date parseToDateyMd(String dateStr){
+        DateFormat dateFormat =
+                new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            return dateFormat.parse(dateStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String formatToStr(Date date){
+        DateFormat dateFormat =
+                new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            return dateFormat.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<String> intervalDays(String start, String end) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        String cur = start;
+        List<String> result = new ArrayList<>();
+        try {
+            c.setTime(sdf.parse(cur));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return result;
+        }
+
+        while(!cur.equals(end)) {
+            result.add(cur);
+            c.add(Calendar.DATE, 1);  // number of days to add
+            cur = sdf.format(c.getTime());  // dt is now the new date
+        }
+        result.add(cur);
+        return result;
     }
 
     public static String getTimePrefix(boolean quarterScope) {

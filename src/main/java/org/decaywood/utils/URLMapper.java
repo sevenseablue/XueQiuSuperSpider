@@ -28,7 +28,11 @@ public enum URLMapper {
     /*--------------------------------  NetEase     --------------------------------------*/
 
     NETEASE_MAIN_PAGE("https://quotes.money.163.com/stock"),
-    STOCK_CAPITAL_FLOW("https://quotes.money.163.com/service/zjlx_chart.html");
+    STOCK_CAPITAL_FLOW("https://quotes.money.163.com/service/zjlx_chart.html"),
+
+    /*--------------------------------  NetEase     --------------------------------------*/
+    WALLSTREETCN_LIVENEWS("https://api.wallstreetcn.com/v2/livenews?limit=60"),
+    WALLSTREETCN_CALENDAR("https://api-markets.wallstreetcn.com//v1/calendar.json");//"?start=2016-05-13&end=2016-05-21"
 
 
     URLMapper(String URL) {
