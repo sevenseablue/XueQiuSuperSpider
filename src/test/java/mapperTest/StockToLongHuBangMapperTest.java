@@ -19,10 +19,10 @@ import java.util.Date;
 public class StockToLongHuBangMapperTest {
 
     @Rule
-    public ExpectedException thrown= ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test()
-    public void testWrongArgument() throws Exception{
+    public void testWrongArgument() throws Exception {
 
         Stock stock = new Stock("中飞股份", "SZ300489");
         StockToLongHuBangMapper mapper = new StockToLongHuBangMapper();

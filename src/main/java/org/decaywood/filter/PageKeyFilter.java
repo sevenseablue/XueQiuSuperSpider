@@ -17,7 +17,6 @@ public class PageKeyFilter extends AbstractFilter<URL> {
     private boolean regex;
 
 
-
     public PageKeyFilter(String key, boolean regex) throws RemoteException {
         this(null, key, regex);
     }
@@ -25,8 +24,8 @@ public class PageKeyFilter extends AbstractFilter<URL> {
 
     /**
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param key 关键字
-     * @param regex 是否启用正则表达式
+     * @param key      关键字
+     * @param regex    是否启用正则表达式
      */
     public PageKeyFilter(TimeWaitingStrategy strategy, String key, boolean regex) throws RemoteException {
         super(strategy);
@@ -41,7 +40,7 @@ public class PageKeyFilter extends AbstractFilter<URL> {
         String pageContent = request(url);
         boolean res;
 
-        if(regex) {
+        if (regex) {
             Pattern pattern = Pattern.compile(key);
             Matcher matcher = pattern.matcher(pageContent);
             res = matcher.find();

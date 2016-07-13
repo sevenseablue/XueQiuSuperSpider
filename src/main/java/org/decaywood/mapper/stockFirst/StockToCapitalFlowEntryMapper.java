@@ -38,10 +38,9 @@ public class StockToCapitalFlowEntryMapper extends AbstractMapper<Stock, Entry<S
     }
 
 
-
     @Override
     public Entry<Stock, CapitalFlow> mapLogic(Stock stock) throws Exception {
-        if(stock == null || stock == EmptyObject.emptyStock)
+        if (stock == null || stock == EmptyObject.emptyStock)
             return new Entry<>(EmptyObject.emptyStock, EmptyObject.emptyCapitalFlow);
 
         String no = stock.getStockNo().substring(2);

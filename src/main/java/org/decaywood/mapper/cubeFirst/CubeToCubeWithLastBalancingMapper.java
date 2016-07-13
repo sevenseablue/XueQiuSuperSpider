@@ -26,7 +26,6 @@ import java.util.List;
 public class CubeToCubeWithLastBalancingMapper extends AbstractMapper<Cube, Cube> {
 
 
-
     private static final int COUNT_THRESHOLD = 50;
 
     private final int count;
@@ -40,20 +39,19 @@ public class CubeToCubeWithLastBalancingMapper extends AbstractMapper<Cube, Cube
     }
 
     /**
-     *
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param count 调仓记录数
+     * @param count    调仓记录数
      */
     public CubeToCubeWithLastBalancingMapper(TimeWaitingStrategy strategy, int count) throws RemoteException {
         super(strategy);
-        if(count <= 0) throw new IllegalArgumentException();
+        if (count <= 0) throw new IllegalArgumentException();
         this.count = Math.min(COUNT_THRESHOLD, count);
     }
 
     @Override
     public Cube mapLogic(Cube cube) throws Exception {
 
-        if(cube == null || cube == EmptyObject.emptyCube) return EmptyObject.emptyCube;
+        if (cube == null || cube == EmptyObject.emptyCube) return EmptyObject.emptyCube;
 
         String target = URLMapper.CUBE_REBALANCING_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target)

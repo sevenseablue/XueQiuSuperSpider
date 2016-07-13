@@ -14,7 +14,7 @@ import java.util.List;
 public class RMITest {
 
 
-//    @Test
+    //    @Test
     public void RMICollectorTest() throws RemoteException {
 
         HuShenNewsRefCollector slave = new HuShenNewsRefCollector(HuShenNewsRefCollector.Topic.TOTAL, 1);

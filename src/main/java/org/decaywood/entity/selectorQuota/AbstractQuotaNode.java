@@ -21,15 +21,15 @@ public abstract class AbstractQuotaNode implements QuotaChainNode {
 
     @Override
     public void setNext(QuotaChainNode next) {
-        if(next == null) return;
-        if(!end()) getNext().setNext(next);
+        if (next == null) return;
+        if (!end()) getNext().setNext(next);
         else this.next = next;
     }
 
     @Override
     public String generateQuotaRequest() {
         StringBuilder builder = builderSelf();
-        if(!this.end())
+        if (!this.end())
             builder.append(this.getNext().generateQuotaRequest());
         builder.deleteCharAt(builder.length() - 1);
         return builder.toString();

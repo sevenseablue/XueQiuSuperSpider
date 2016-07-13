@@ -56,15 +56,13 @@ public class Stock implements DeepCopy<Stock> {
 
 
     /**
-     *
      * @param stockName 股票名称
-     * @param stockNo 股票代码
+     * @param stockNo   股票代码
      */
     public Stock(final String stockName, final String stockNo) {
         this.stockName = stockName;
         this.stockNo = stockNo;
     }
-
 
 
     //股票名称
@@ -95,6 +93,7 @@ public class Stock implements DeepCopy<Stock> {
     public void setCurrent(String current) {
         this.current = current;
     }
+
     //成交量
     public String getVolume() {
         return volume;
@@ -295,6 +294,7 @@ public class Stock implements DeepCopy<Stock> {
         this.net_assets = net_assets;
 
     }
+
     //动态市盈率
     public String getPe_ttm() {
         return pe_ttm;

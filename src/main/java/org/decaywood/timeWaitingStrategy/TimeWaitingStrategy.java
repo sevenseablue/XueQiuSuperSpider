@@ -12,6 +12,7 @@ public interface TimeWaitingStrategy {
 
     /**
      * 等待逻辑
+     *
      * @param loopTime 循环到loopTime次
      */
     void waiting(int loopTime);

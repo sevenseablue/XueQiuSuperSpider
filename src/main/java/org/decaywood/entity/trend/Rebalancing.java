@@ -35,18 +35,17 @@ public class Rebalancing extends Trend<Rebalancing.TrendBlock, Rebalancing> {
         private final String prev_weight;
         private final String target_weight;
         private final String weight;
-        private final  String rebalancing_id;
+        private final String rebalancing_id;
 
         /**
-         *
-         * @param stock_name 股票名称
-         * @param stock_symbol 股票代码
-         * @param created_at 调仓时间
-         * @param prev_price 上一次调仓价格
-         * @param price 当前价格
-         * @param prev_weight 上一次持仓比例
-         * @param target_weight 期望持仓比例
-         * @param weight 实际持仓比例
+         * @param stock_name     股票名称
+         * @param stock_symbol   股票代码
+         * @param created_at     调仓时间
+         * @param prev_price     上一次调仓价格
+         * @param price          当前价格
+         * @param prev_weight    上一次持仓比例
+         * @param target_weight  期望持仓比例
+         * @param weight         实际持仓比例
          * @param rebalancing_id 调仓节点ID
          */
         public TrendBlock(String stock_name,
@@ -60,7 +59,7 @@ public class Rebalancing extends Trend<Rebalancing.TrendBlock, Rebalancing> {
                           String rebalancing_id
         ) {
 
-            if(StringUtils.nullOrEmpty(stock_name, stock_symbol, created_at
+            if (StringUtils.nullOrEmpty(stock_name, stock_symbol, created_at
                     , prev_price, price, prev_weight, target_weight, weight, rebalancing_id))
                 throw new IllegalArgumentException();
 
@@ -126,7 +125,6 @@ public class Rebalancing extends Trend<Rebalancing.TrendBlock, Rebalancing> {
                     '}';
         }
     }
-
 
 
     @Override

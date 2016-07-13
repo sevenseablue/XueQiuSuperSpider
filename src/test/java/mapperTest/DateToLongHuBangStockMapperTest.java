@@ -20,7 +20,7 @@ public class DateToLongHuBangStockMapperTest {
         DateToLongHuBangStockMapper mapper = new DateToLongHuBangStockMapper(null);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2015, Calendar.NOVEMBER, 26);
-        List<Stock> stocks =  mapper.apply(calendar.getTime());
+        List<Stock> stocks = mapper.apply(calendar.getTime());
         Assert.assertFalse(stocks.isEmpty());
     }
 
@@ -30,7 +30,7 @@ public class DateToLongHuBangStockMapperTest {
         DateToLongHuBangStockMapper mapper = new DateToLongHuBangStockMapper(null);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2015, Calendar.NOVEMBER, 21);
-        List<Stock> stocks =  mapper.apply(calendar.getTime());
+        List<Stock> stocks = mapper.apply(calendar.getTime());
         Assert.assertTrue(stocks.isEmpty());
 
 

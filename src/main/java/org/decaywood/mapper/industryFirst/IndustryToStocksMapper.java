@@ -38,7 +38,7 @@ public class IndustryToStocksMapper extends AbstractMapper<Industry, List<Stock>
     @Override
     public List<Stock> mapLogic(Industry industry) throws Exception {
 
-        if(industry == null || industry == EmptyObject.emptyIndustry) return new ArrayList<>();
+        if (industry == null || industry == EmptyObject.emptyIndustry) return new ArrayList<>();
 
         String target = URLMapper.INDUSTRY_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target);

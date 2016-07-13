@@ -13,12 +13,12 @@ import java.util.List;
 /**
  * 抽象类， 保存历史趋势
  */
-public abstract class Trend <T, C> implements DeepCopy<C> {
+public abstract class Trend<T, C> implements DeepCopy<C> {
 
     protected final List<T> history;
 
     public Trend(List<T> history) {
-        if(history == null) throw new IllegalArgumentException();
+        if (history == null) throw new IllegalArgumentException();
         this.history = history;
     }
 

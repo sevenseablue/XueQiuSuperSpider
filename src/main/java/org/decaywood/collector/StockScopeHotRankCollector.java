@@ -72,14 +72,13 @@ public class StockScopeHotRankCollector extends AbstractCollector<List<Stock>> {
 
 
     /**
-     *
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param scope 热股关注范围
-     * @param topK 排名前K个股
+     * @param scope    热股关注范围
+     * @param topK     排名前K个股
      */
     public StockScopeHotRankCollector(TimeWaitingStrategy strategy, Scope scope, int topK) throws RemoteException {
         super(strategy);
-        if(topK <= 0) throw new IllegalArgumentException();
+        if (topK <= 0) throw new IllegalArgumentException();
         this.topK = Math.min(topK, PAGE_SIZE_SHRESHOLD);
         this.scope = scope == null ? Scope.SH_SZ_WITHIN_24_HOUR : scope;
     }

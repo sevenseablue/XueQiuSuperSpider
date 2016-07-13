@@ -21,10 +21,9 @@ public class DefaultTimeWaitingStrategy implements TimeWaitingStrategy {
 
 
     /**
-     *
      * @param timeWaitingThreshold 超时等待阈值（最多等待阈值指定时间然后进入下一次请求尝试）
-     * @param timeWaiting 起始等待时间
-     * @param retryTime 重试次数（超过次数抛出超时异常）
+     * @param timeWaiting          起始等待时间
+     * @param retryTime            重试次数（超过次数抛出超时异常）
      */
     public DefaultTimeWaitingStrategy(final long timeWaitingThreshold, long timeWaiting, int retryTime) {
         this.timeWaitingThreshold = timeWaitingThreshold;

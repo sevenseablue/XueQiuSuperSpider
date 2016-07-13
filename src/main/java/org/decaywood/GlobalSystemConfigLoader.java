@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 public abstract class GlobalSystemConfigLoader {
 
     /**
-     *  只读，无需同步
+     * 只读，无需同步
      */
     private static final Map<String, String> RMIConfig = new HashMap<>();
 
@@ -51,7 +51,7 @@ public abstract class GlobalSystemConfigLoader {
 
     public static void loadConfig() {
 
-        if(loaded) return;
+        if (loaded) return;
 
         loaded = true;
 
@@ -61,7 +61,7 @@ public abstract class GlobalSystemConfigLoader {
     }
 
     public static Entry<String, Integer> getAddress(int index) {
-        if(index < 0 || index >= addresses.size()) throw new ArrayIndexOutOfBoundsException();
+        if (index < 0 || index >= addresses.size()) throw new ArrayIndexOutOfBoundsException();
         return addresses.get(index);
     }
 
@@ -116,7 +116,6 @@ public abstract class GlobalSystemConfigLoader {
     }
 
     /**
-     *
      * @param key RMI 属性名字
      * @return RMI 对应配置
      */

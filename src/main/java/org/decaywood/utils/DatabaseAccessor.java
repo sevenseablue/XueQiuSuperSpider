@@ -42,9 +42,8 @@ public class DatabaseAccessor {
     }
 
 
-
     public DatabaseAccessor(String jdbcDriver, String dbUrl, String dbUsername,
-                          String dbPassword) {
+                            String dbPassword) {
 
         this.jdbcDriver = jdbcDriver;
         this.dbUrl = dbUrl;
@@ -60,7 +59,6 @@ public class DatabaseAccessor {
     }
 
 
-
     public synchronized void createPool() throws Exception {
 
         if (connections != null) return;
@@ -71,7 +69,6 @@ public class DatabaseAccessor {
         System.out.println(" 数据库连接池创建成功！ ");
 
     }
-
 
 
     public synchronized Connection getConnection() {
@@ -93,7 +90,6 @@ public class DatabaseAccessor {
     }
 
 
-
     public void returnConnection(Connection conn) {
 
         if (connections == null) {
@@ -108,7 +104,6 @@ public class DatabaseAccessor {
         connection.setBusy(false);
 
     }
-
 
 
     public synchronized void refreshConnections() throws SQLException {
@@ -164,7 +159,6 @@ public class DatabaseAccessor {
     }
 
 
-
     private Connection newConnection() throws SQLException {
 
         Connection conn = DriverManager.getConnection(dbUrl, dbUsername,
@@ -184,7 +178,6 @@ public class DatabaseAccessor {
         return conn;
 
     }
-
 
 
     private Connection getFreeConnection() throws Exception {

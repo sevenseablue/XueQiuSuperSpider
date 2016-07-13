@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * 股票公司信息装配器
  */
-public class StockToStockWithCompanyInfoMapper extends AbstractMapper <Stock, Stock> {
+public class StockToStockWithCompanyInfoMapper extends AbstractMapper<Stock, Stock> {
 
     private Map<String, Industry> industryMap;
     private volatile boolean initializing;
@@ -62,7 +62,7 @@ public class StockToStockWithCompanyInfoMapper extends AbstractMapper <Stock, St
         for (Element ele : element) {
             if (!ele.hasAttr("title") || !ele.hasAttr("href")) continue;
             builder.append(ele.attr("href"));
-            industryMap.put(ele.attr("title"),  new Industry(ele.attr("title"), builder.toString()));
+            industryMap.put(ele.attr("title"), new Industry(ele.attr("title"), builder.toString()));
             builder.delete(0, builder.length());
         }
     }
@@ -70,9 +70,9 @@ public class StockToStockWithCompanyInfoMapper extends AbstractMapper <Stock, St
     @Override
     public Stock mapLogic(Stock stock) throws Exception {
 
-        if(stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
+        if (stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
 
-        if(industryMap == null && !initializing) {
+        if (industryMap == null && !initializing) {
             initializing = true;
             initMap();
         } else while (industryMap == null) {

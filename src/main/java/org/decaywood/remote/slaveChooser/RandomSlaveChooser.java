@@ -26,5 +26,4 @@ public class RandomSlaveChooser implements SlaveChooser {
     }
 
 
-
 }

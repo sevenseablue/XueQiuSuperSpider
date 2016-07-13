@@ -58,7 +58,7 @@ public abstract class AbstractFilter<T> extends AbstractRemoteService implements
                         needRMI = false;
                         break;
                     } catch (Exception e) {
-                        if(!(e instanceof IOException)) throw e;
+                        if (!(e instanceof IOException)) throw e;
                         System.out.println("Filter: Network busy Retrying -> " + loopTime + " times");
                         updateCookie(webSite);
                         this.strategy.waiting(loopTime++);
@@ -71,7 +71,7 @@ public abstract class AbstractFilter<T> extends AbstractRemoteService implements
                 RemoteFilter proxy = (RemoteFilter) getRMIProxy();
                 //noinspection unchecked
                 res = proxy.test(t);
-            } else if(rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
+            } else if (rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
 
         } catch (Exception e) {
             e.printStackTrace();

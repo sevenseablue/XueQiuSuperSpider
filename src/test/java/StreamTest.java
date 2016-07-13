@@ -36,7 +36,7 @@ public class StreamTest {
 
         Predicate<Entry<String, Stock>> predicate = x -> {
 
-            if(x.getValue().getStockTrend().getHistory().isEmpty()) return false;
+            if (x.getValue().getStockTrend().getHistory().isEmpty()) return false;
             List<StockTrend.TrendBlock> history = x.getValue().getStockTrend().getHistory();
             StockTrend.TrendBlock block = history.get(history.size() - 1);
             double close = Double.parseDouble(block.getClose());
@@ -119,7 +119,7 @@ public class StreamTest {
         Date from = calendar.getTime();
         calendar.set(2015, Calendar.NOVEMBER, 25);
         Date to = calendar.getTime();
-        MostProfitableCubeCollector cubeCollector = new MostProfitableCubeCollector( MostProfitableCubeCollector.Market.CN,
+        MostProfitableCubeCollector cubeCollector = new MostProfitableCubeCollector(MostProfitableCubeCollector.Market.CN,
                 MostProfitableCubeCollector.ORDER_BY.DAILY);
         CubeToCubeWithLastBalancingMapper mapper = null;
         try {
@@ -197,7 +197,6 @@ public class StreamTest {
         }
 
     }
-
 
 
     //游资追踪

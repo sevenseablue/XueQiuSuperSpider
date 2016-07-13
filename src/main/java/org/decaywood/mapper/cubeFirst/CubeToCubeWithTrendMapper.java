@@ -35,10 +35,9 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
 
 
     /**
-     *
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param since 走线计算起始时间
-     * @param until 走线计算结束时间
+     * @param since    走线计算起始时间
+     * @param until    走线计算结束时间
      */
     public CubeToCubeWithTrendMapper(
             TimeWaitingStrategy strategy,
@@ -46,7 +45,7 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
             Date until) throws RemoteException {
 
         super(strategy);
-        if(since == null || until == null || since.after(until))
+        if (since == null || until == null || since.after(until))
             throw new IllegalArgumentException("Null Pointer");
 
         this.since = since.getTime();
@@ -57,7 +56,7 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
 
     @Override
     public Cube mapLogic(Cube cube) throws Exception {
-        if(cube == null || cube == EmptyObject.emptyCube) return EmptyObject.emptyCube;
+        if (cube == null || cube == EmptyObject.emptyCube) return EmptyObject.emptyCube;
 
         String target = URLMapper.CUBE_TREND_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target)
@@ -105,7 +104,7 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
             blocks.add(trendBlock);
         }
 
-        if(blocks.isEmpty()) return EmptyObject.emptyCubeTrend;
+        if (blocks.isEmpty()) return EmptyObject.emptyCubeTrend;
 
         return new CubeTrend(
                 node.get("symbol").asText(),
@@ -134,7 +133,7 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
             blocks.add(trendBlock);
         }
 
-        if(blocks.isEmpty()) return EmptyObject.emptyMarketIndexTrend;
+        if (blocks.isEmpty()) return EmptyObject.emptyMarketIndexTrend;
 
         return new MarketIndexTrend(
                 node.get("symbol").asText(),
@@ -143,7 +142,6 @@ public class CubeToCubeWithTrendMapper extends AbstractMapper<Cube, Cube> {
                 blocks.get(blocks.size() - 1).getTime(),
                 blocks);
     }
-
 
 
 }

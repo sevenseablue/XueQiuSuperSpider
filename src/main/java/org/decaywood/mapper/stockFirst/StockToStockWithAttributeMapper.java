@@ -37,7 +37,7 @@ public class StockToStockWithAttributeMapper extends AbstractMapper<Stock, Stock
     @Override
     public Stock mapLogic(Stock stock) throws Exception {
 
-        if(stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
+        if (stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
 
         String target = URLMapper.STOCK_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target)
@@ -78,8 +78,6 @@ public class StockToStockWithAttributeMapper extends AbstractMapper<Stock, Stock
         return stock;
 
     }
-
-
 
 
 }

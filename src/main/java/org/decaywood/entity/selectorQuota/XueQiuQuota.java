@@ -69,7 +69,6 @@ public class XueQiuQuota extends AbstractQuotaNode {
     }
 
 
-
     @Override
     StringBuilder builderSelf() {
         StringBuilder builder = new StringBuilder();

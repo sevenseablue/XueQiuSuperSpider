@@ -67,24 +67,23 @@ public class MarketQuotationsRankCollector extends AbstractCollector<List<Stock>
 
 
     /**
-     *
-     * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param stockType 股票类型
+     * @param strategy     超时等待策略（null则设置为默认等待策略）
+     * @param stockType    股票类型
      * @param orderPattern 排序规则
-     * @param topK 取排名前K
+     * @param topK         取排名前K
      */
     public MarketQuotationsRankCollector(
             TimeWaitingStrategy strategy,
             StockType stockType,
             String orderPattern,
             int topK
-            ) throws RemoteException {
+    ) throws RemoteException {
 
         super(strategy);
 
         orderPattern = orderPattern == null ? "" : orderPattern;
 
-        if(!isLegal(orderPattern) || topK <= 0)
+        if (!isLegal(orderPattern) || topK <= 0)
             throw new IllegalArgumentException("Not legal or not support yet exception");
 
         this.stockType = stockType == null ? StockType.SH_A : stockType;

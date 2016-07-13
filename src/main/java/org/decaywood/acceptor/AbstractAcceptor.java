@@ -59,7 +59,7 @@ public abstract class AbstractAcceptor<T> extends AbstractRemoteService implemen
                         needRMI = false;
                         break;
                     } catch (Exception e) {
-                        if(!(e instanceof IOException)) throw e;
+                        if (!(e instanceof IOException)) throw e;
                         System.out.println("Acceptor: Network busy Retrying -> " + loopTime + " times");
                         updateCookie(webSite);
                         this.strategy.waiting(loopTime++);
@@ -71,7 +71,7 @@ public abstract class AbstractAcceptor<T> extends AbstractRemoteService implemen
                 RemoteAcceptor proxy = (RemoteAcceptor) getRMIProxy();
                 //noinspection unchecked
                 proxy.accept(t);
-            } else if(rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
+            } else if (rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
 
         } catch (Exception e) {
             e.printStackTrace();

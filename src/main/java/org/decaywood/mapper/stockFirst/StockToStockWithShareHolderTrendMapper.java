@@ -39,14 +39,13 @@ public class StockToStockWithShareHolderTrendMapper extends AbstractMapper<Stock
 
 
     /**
-     *
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param from 查询起始时间
-     * @param to 查询结束时间
+     * @param from     查询起始时间
+     * @param to       查询结束时间
      */
     public StockToStockWithShareHolderTrendMapper(TimeWaitingStrategy strategy, Date from, Date to) throws RemoteException {
         super(strategy);
-        if(from.after(to)) throw new IllegalArgumentException();
+        if (from.after(to)) throw new IllegalArgumentException();
         this.from = from;
         this.to = to;
 
@@ -55,7 +54,7 @@ public class StockToStockWithShareHolderTrendMapper extends AbstractMapper<Stock
 
     @Override
     public Stock mapLogic(Stock stock) throws Exception {
-        if(stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
+        if (stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
 
         String target = URLMapper.STOCK_SHAREHOLDERS_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target)
@@ -81,7 +80,7 @@ public class StockToStockWithShareHolderTrendMapper extends AbstractMapper<Stock
             String enddate = jsonNode.get("enddate").asText();
             Date date = DateParser.parseDate(enddate);
 
-            if(from.after(date) || date.after(to)) continue;
+            if (from.after(date) || date.after(to)) continue;
 
             String totalshamt = jsonNode.get("totalshamt").asText();
             String holdproportionpacc = jsonNode.get("holdproportionpacc").asText();

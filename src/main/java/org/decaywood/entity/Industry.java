@@ -21,7 +21,6 @@ public class Industry implements DeepCopy<Industry> {
     }
 
 
-
     public String getIndustryName() {
         return industryName;
     }
@@ -50,7 +49,7 @@ public class Industry implements DeepCopy<Industry> {
 
     @Override
     public String toString() {
-        return "industryName = " + industryName  + "  " + "industryInfo = " + industryInfo;
+        return "industryName = " + industryName + "  " + "industryInfo = " + industryInfo;
     }
 
     @Override

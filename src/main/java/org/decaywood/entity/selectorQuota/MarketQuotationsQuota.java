@@ -11,7 +11,7 @@ package org.decaywood.entity.selectorQuota;
 public class MarketQuotationsQuota extends AbstractQuotaNode {
 
     private String current = "ALL"; //当前价
-    private String pct =  "ALL"; //本日涨跌幅(%)
+    private String pct = "ALL"; //本日涨跌幅(%)
     private String pct5 = "ALL"; //前5日涨跌幅(%)
     private String pct10 = "ALL"; //前10日涨跌幅(%)
     private String pct20 = "ALL"; //前20日涨跌幅(%)
@@ -124,7 +124,6 @@ public class MarketQuotationsQuota extends AbstractQuotaNode {
     public void setTr1m(double from, double to) {
         this.tr1m = from + "_" + to;
     }
-
 
 
     @Override

@@ -28,7 +28,7 @@ public class CommissionIndustryCollector extends AbstractCollector<List<Industry
     }
 
     /**
-     *@param strategy 超时等待策略（null则设置为默认等待策略）
+     * @param strategy 超时等待策略（null则设置为默认等待策略）
      */
     public CommissionIndustryCollector(TimeWaitingStrategy strategy) throws RemoteException {
         super(strategy);
@@ -58,7 +58,6 @@ public class CommissionIndustryCollector extends AbstractCollector<List<Industry
 
         return res;
     }
-
 
 
 }

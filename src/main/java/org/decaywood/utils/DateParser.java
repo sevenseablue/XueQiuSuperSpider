@@ -18,7 +18,6 @@ public abstract class DateParser {
     private static final Date quarter4;
 
 
-
     static {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -43,7 +42,7 @@ public abstract class DateParser {
         return null;
     }
 
-    public static Date parseToDateyMd(String dateStr){
+    public static Date parseToDateyMd(String dateStr) {
         DateFormat dateFormat =
                 new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
@@ -54,7 +53,7 @@ public abstract class DateParser {
         return null;
     }
 
-    public static String formatToStr(Date date){
+    public static String formatToStr(Date date) {
         DateFormat dateFormat =
                 new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
@@ -77,7 +76,7 @@ public abstract class DateParser {
             return result;
         }
 
-        while(!cur.equals(end)) {
+        while (!cur.equals(end)) {
             result.add(cur);
             c.add(Calendar.DATE, 1);  // number of days to add
             cur = sdf.format(c.getTime());  // dt is now the new date
@@ -99,11 +98,11 @@ public abstract class DateParser {
         int month = calendar.get(Calendar.MONTH) + diff;
         int day = calendar.get(Calendar.DATE);
 
-        if(quarterScope) {
+        if (quarterScope) {
             year = calendar.get(Calendar.YEAR);
             if (date.after(quarter3)) calendar.setTime(quarter3);
-            else if(date.after(quarter2)) calendar.setTime(quarter2);
-            else if(date.after(quarter1)) calendar.setTime(quarter1);
+            else if (date.after(quarter2)) calendar.setTime(quarter2);
+            else if (date.after(quarter1)) calendar.setTime(quarter1);
             else {
                 year--;
                 calendar.setTime(quarter4);
@@ -120,7 +119,7 @@ public abstract class DateParser {
 
     public static Date parseDate(String yyyymmdd) {
 
-        if(yyyymmdd == null || yyyymmdd.length() != 8 || !isdigit(yyyymmdd))
+        if (yyyymmdd == null || yyyymmdd.length() != 8 || !isdigit(yyyymmdd))
             throw new IllegalArgumentException();
 
         Calendar calendar = Calendar.getInstance();
@@ -134,7 +133,7 @@ public abstract class DateParser {
     }
 
     private static boolean isdigit(String str) {
-        for (char c : str.toCharArray()) if(!Character.isDigit(c)) return false;
+        for (char c : str.toCharArray()) if (!Character.isDigit(c)) return false;
         return true;
     }
 

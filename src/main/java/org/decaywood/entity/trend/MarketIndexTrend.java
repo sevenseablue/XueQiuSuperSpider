@@ -21,17 +21,16 @@ public class MarketIndexTrend extends Trend<MarketIndexTrend.TrendBlock, MarketI
     private final String to;
 
     /**
-     *
-     * @param symbol 大盘代码
-     * @param name 大盘名字
-     * @param from 走线计算起始时间
-     * @param to 走线计算结束时间
+     * @param symbol  大盘代码
+     * @param name    大盘名字
+     * @param from    走线计算起始时间
+     * @param to      走线计算结束时间
      * @param history 走线集合
      */
     public MarketIndexTrend(String symbol, String name, String from, String to, List<TrendBlock> history) {
         super(history);
 
-        if(symbol == null || name == null)
+        if (symbol == null || name == null)
             throw new IllegalArgumentException();
 
         this.name = name;
@@ -52,14 +51,13 @@ public class MarketIndexTrend extends Trend<MarketIndexTrend.TrendBlock, MarketI
 
 
         /**
-         *
-         * @param time 节点时间
-         * @param date 节点日期
-         * @param value 涨幅
+         * @param time    节点时间
+         * @param date    节点日期
+         * @param value   涨幅
          * @param percent 涨幅（%）
          */
         public TrendBlock(String time, String date, String value, String percent) {
-            if(StringUtils.nullOrEmpty(time, date, value, percent))
+            if (StringUtils.nullOrEmpty(time, date, value, percent))
                 throw new IllegalArgumentException();
             this.time = time;
             this.date = date;

@@ -31,7 +31,7 @@ public enum URLMapper {
     STOCK_CAPITAL_FLOW("https://quotes.money.163.com/service/zjlx_chart.html"),
 
     /*--------------------------------  NetEase     --------------------------------------*/
-    WALLSTREETCN_LIVENEWS("https://api.wallstreetcn.com/v2/livenews?limit=60"),
+    WALLSTREETCN_LIVENEWS("https://api.wallstreetcn.com/v2/livenews"), //?status=published&order=-created_at&page=3&channelId=1&extractImg=1&extractText=1
     WALLSTREETCN_CALENDAR("https://api-markets.wallstreetcn.com//v1/calendar.json");//"?start=2016-05-13&end=2016-05-21"
 
 

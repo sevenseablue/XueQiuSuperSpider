@@ -16,23 +16,23 @@ public abstract class FileLoader {
     private static final Map<String, String> cookie = new ConcurrentHashMap<>();//多线程写状态，存在并发
 
 
-
     /**
      * 加载最新cookie
+     *
      * @param key 关键字
      * @return cookie
      */
     public static String loadCookie(String key) {
-        if(cookie.containsKey(key)) return cookie.get(key);
+        if (cookie.containsKey(key)) return cookie.get(key);
         return EmptyObject.emptyString;
     }
 
 
-
     /**
      * 更新cookie
+     *
      * @param cookie cookie内容
-     * @param key 关键字
+     * @param key    关键字
      */
     public static void updateCookie(String cookie, String key) {
         FileLoader.cookie.put(key, cookie);
@@ -48,16 +48,17 @@ public abstract class FileLoader {
 
     /**
      * 若文件不存在则创建文件
+     *
      * @param rawPath 文件相对路径
-     * @param text 更新内容
-     * @param key 文件名字
-     * @param  append 是否追加
+     * @param text    更新内容
+     * @param key     文件名字
+     * @param append  是否追加
      */
     public static void updateCookie(String rawPath, String text, String key, StringBuilder builder, boolean append) {
         String path = ROOT_PATH + rawPath;
         File cookie = new File(path);
         String p;
-        if(!cookie.exists()) updateCookie(builder.append("../").toString() + rawPath, text, key, builder, append);
+        if (!cookie.exists()) updateCookie(builder.append("../").toString() + rawPath, text, key, builder, append);
         else {
 
             try {
@@ -65,8 +66,8 @@ public abstract class FileLoader {
 
                 File file = new File(p);
                 boolean success = true;
-                if(!file.exists()) success = file.createNewFile();
-                if(!success) throw new Exception();
+                if (!file.exists()) success = file.createNewFile();
+                if (!success) throw new Exception();
 
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(p, append))) {
                     writer.write(text);
@@ -80,6 +81,7 @@ public abstract class FileLoader {
 
     /**
      * 加载文件内容（文件必须存在）
+     *
      * @param rawPath 文件相对位置
      * @return File
      */
@@ -87,12 +89,13 @@ public abstract class FileLoader {
         String path = ROOT_PATH + rawPath;
         File file = new File(path);
 
-        if(!file.exists()) return loadFile(builder.append("../").toString() + rawPath, builder);
+        if (!file.exists()) return loadFile(builder.append("../").toString() + rawPath, builder);
         else return file;
     }
 
     /**
      * 加载文件内容（文件必须存在）
+     *
      * @param rawPath 文件相对位置
      * @return 文件内容
      */

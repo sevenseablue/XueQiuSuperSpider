@@ -33,16 +33,15 @@ public class ShareHoldersTrend extends Trend<ShareHoldersTrend.TrendBlock, Share
 
 
         /**
-         *
-         * @param enddate 统计日期
-         * @param totalshamt 股东总户数
-         * @param holdproportionpacc 户均持股比例
-         * @param totalshrto 股东总户数较上期增减
-         * @param proportionchg 户均持股比例环比变化
+         * @param enddate              统计日期
+         * @param totalshamt           股东总户数
+         * @param holdproportionpacc   户均持股比例
+         * @param totalshrto           股东总户数较上期增减
+         * @param proportionchg        户均持股比例环比变化
          * @param proportiongrhalfyear 户均持股比例半年增长率
-         * @param proportiongrq 户均持股比例季度增长率
+         * @param proportiongrq        户均持股比例季度增长率
          * @param avgholdsumgrhalfyear A股户均持股数半年增长率
-         * @param avgholdsumgrq A股户均持股数季度增长率
+         * @param avgholdsumgrq        A股户均持股数季度增长率
          */
         public TrendBlock(String enddate,
                           String totalshamt,
@@ -54,7 +53,7 @@ public class ShareHoldersTrend extends Trend<ShareHoldersTrend.TrendBlock, Share
                           String avgholdsumgrhalfyear,
                           String avgholdsumgrq) {
 
-            if(StringUtils.nullOrEmpty(
+            if (StringUtils.nullOrEmpty(
                     enddate,
                     totalshamt,
                     holdproportionpacc,
@@ -112,7 +111,6 @@ public class ShareHoldersTrend extends Trend<ShareHoldersTrend.TrendBlock, Share
             return avgholdsumgrq;
         }
     }
-
 
 
     @Override

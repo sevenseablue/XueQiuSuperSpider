@@ -32,10 +32,11 @@ public abstract class EmptyObject {
                     new ArrayList<>());
         }
     }
+
     private static class EmptyCapitalFlow extends CapitalFlow {
 
         public EmptyCapitalFlow() {
-            super(  emptyString,
+            super(emptyString,
                     emptyString,
                     emptyString,
                     emptyString,
@@ -60,7 +61,8 @@ public abstract class EmptyObject {
         }
 
         @Override
-        public void setNext(QuotaChainNode quotaChainNode) {}
+        public void setNext(QuotaChainNode quotaChainNode) {
+        }
 
         @Override
         public String generateQuotaRequest() {

@@ -57,14 +57,14 @@ public class StockToStockWithStockTrendMapper extends AbstractMapper<Stock, Stoc
             this.from = from;
             this.to = to;
         }
-        if(this.to.before(this.from)) throw new IllegalArgumentException();
+        if (this.to.before(this.from)) throw new IllegalArgumentException();
         this.period = period;
     }
 
     @Override
     public Stock mapLogic(Stock stock) throws Exception {
 
-        if(stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
+        if (stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyStock;
 
         String target = URLMapper.STOCK_TREND_JSON.toString();
         RequestParaBuilder builder = new RequestParaBuilder(target)
@@ -118,7 +118,6 @@ public class StockToStockWithStockTrendMapper extends AbstractMapper<Stock, Stoc
                 : new StockTrend(stock.getStockNo(), period, history);
         stock.setStockTrend(trend);
     }
-
 
 
 }

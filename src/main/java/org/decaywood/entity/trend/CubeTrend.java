@@ -23,16 +23,15 @@ public class CubeTrend extends Trend<CubeTrend.TrendBlock, CubeTrend> {
 
 
     /**
-     *
-     * @param symbol 组合代码
-     * @param name 组合名字
-     * @param from 走线计算起始时间
-     * @param to 走线计算结束时间
+     * @param symbol  组合代码
+     * @param name    组合名字
+     * @param from    走线计算起始时间
+     * @param to      走线计算结束时间
      * @param history 走线集合
      */
     public CubeTrend(String symbol, String name, String from, String to, List<TrendBlock> history) {
         super(history);
-        if(symbol == null || name == null || from == null || to == null)
+        if (symbol == null || name == null || from == null || to == null)
             throw new IllegalArgumentException();
         this.symbol = symbol;
         this.name = name;
@@ -69,14 +68,13 @@ public class CubeTrend extends Trend<CubeTrend.TrendBlock, CubeTrend> {
 
 
         /**
-         *
-         * @param time 节点时间
-         * @param date 节点日期
-         * @param value 涨幅
+         * @param time    节点时间
+         * @param date    节点日期
+         * @param value   涨幅
          * @param percent 涨幅（%）
          */
         public TrendBlock(String time, String date, String value, String percent) {
-            if(StringUtils.nullOrEmpty(time, date, value, percent))
+            if (StringUtils.nullOrEmpty(time, date, value, percent))
                 throw new IllegalArgumentException();
             this.time = time;
             this.date = date;

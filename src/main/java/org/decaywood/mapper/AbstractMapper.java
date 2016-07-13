@@ -17,7 +17,7 @@ import java.util.function.Function;
  * @date: 2015/11/24 16:56
  */
 
-public abstract class AbstractMapper <T, R> extends AbstractRemoteService implements
+public abstract class AbstractMapper<T, R> extends AbstractRemoteService implements
         Function<T, R>,
         RemoteMapper<T, R>,
         CookieProcessor {
@@ -48,7 +48,7 @@ public abstract class AbstractMapper <T, R> extends AbstractRemoteService implem
             int loopTime = 1;
             boolean needRMI = true;
 
-            if(t != null) //noinspection unchecked
+            if (t != null) //noinspection unchecked
                 t = t instanceof DeepCopy ? ((DeepCopy<T>) t).copy() : t;
 
             if (!RMIOnly) {
@@ -70,7 +70,7 @@ public abstract class AbstractMapper <T, R> extends AbstractRemoteService implem
                 RemoteMapper proxy = (RemoteMapper) getRMIProxy();
                 //noinspection unchecked
                 res = (R) proxy.apply(t);
-            } else if(rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
+            } else if (rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
 
         } catch (Exception e) {
             e.printStackTrace();

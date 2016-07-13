@@ -67,7 +67,6 @@ public abstract class AbstractRemoteService extends UnicastRemoteObject {
     }
 
 
-
     protected Object getRMIProxy() throws RemoteException, NotBoundException, MalformedURLException {
 
         Entry<String, Integer> entry = slaveChooser.chooseSlave();
@@ -108,7 +107,7 @@ public abstract class AbstractRemoteService extends UnicastRemoteObject {
             Naming.rebind(getInvokeURL(slaveIP, port), this);
             System.out.println("RMI Slave 启动成功" + " URL: " + getInvokeURL(slaveIP, port));
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("RMI Slave 创建失败");
         }

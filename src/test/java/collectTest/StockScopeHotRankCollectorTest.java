@@ -20,7 +20,7 @@ public class StockScopeHotRankCollectorTest {
         StockScopeHotRankCollector collector = new StockScopeHotRankCollector(null);
         Assert.assertNotNull(collector.getScope());
     }
-    
+
     @Test
     public void testGlobal() throws RemoteException {
         StockScopeHotRankCollector collector1 = new StockScopeHotRankCollector(StockScopeHotRankCollector.Scope.GLOBAL_WITHIN_1_HOUR);
@@ -59,8 +59,6 @@ public class StockScopeHotRankCollectorTest {
     }
 
 
-
-
     @Test
     public void test_HK() throws RemoteException {
         StockScopeHotRankCollector collector1 = new StockScopeHotRankCollector(StockScopeHotRankCollector.Scope.HK_WITHIN_1_HOUR);
@@ -96,7 +94,6 @@ public class StockScopeHotRankCollectorTest {
             Assert.assertTrue(stock.getStockName().length() > 0);
         }
     }
-
 
 
     @Test(expected = IllegalArgumentException.class)

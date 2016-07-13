@@ -29,16 +29,15 @@ public class CapitalFlow implements DeepCopy<CapitalFlow> {
 
 
     /**
-     *
-     * @param capitalInflow 资金流向
-     * @param largeQuantity 大单
-     * @param midQuantity 中单
-     * @param smallQuantity 小单
-     * @param largeQuantBuy 大单主动买入
-     * @param largeQuantSell 大单主动卖出
+     * @param capitalInflow      资金流向
+     * @param largeQuantity      大单
+     * @param midQuantity        中单
+     * @param smallQuantity      小单
+     * @param largeQuantBuy      大单主动买入
+     * @param largeQuantSell     大单主动卖出
      * @param largeQuantDealProp 大单成交占比
-     * @param fiveDayInflow 五天净流入总量
-     * @param fiveDayInflows 五天净流入详情
+     * @param fiveDayInflow      五天净流入总量
+     * @param fiveDayInflows     五天净流入详情
      */
     public CapitalFlow(String capitalInflow,
                        String largeQuantity,
@@ -60,7 +59,6 @@ public class CapitalFlow implements DeepCopy<CapitalFlow> {
         this.fiveDayInflow = fiveDayInflow;
         this.fiveDayInflows = fiveDayInflows;
     }
-
 
 
     public String getCapitalInflow() {

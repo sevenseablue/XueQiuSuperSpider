@@ -20,26 +20,24 @@ import java.sql.PreparedStatement;
  */
 public class UserInfoToDBAcceptor extends AbstractAcceptor<Entry<Stock, Integer>> {
 
-    public UserInfoToDBAcceptor() throws RemoteException {}
+    public UserInfoToDBAcceptor() throws RemoteException {
+    }
 
     /**
-
-
-     CREATE TABLE `xueqiuspider`.`stock_vip_followers` (
-     `id` INT NOT NULL AUTO_INCREMENT,
-     `stock_id` VARCHAR(45) NULL,
-     `stock_name` VARCHAR(45) NULL,
-     `vip_id` VARCHAR(45) NULL,
-     `vip_count` INT NULL,
-     PRIMARY KEY (`id`),
-     UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-     UNIQUE INDEX `stock_id_UNIQUE` (`stock_id` ASC),
-     UNIQUE INDEX `stock_name_UNIQUE` (`stock_name` ASC));
-
+     * CREATE TABLE `xueqiuspider`.`stock_vip_followers` (
+     * `id` INT NOT NULL AUTO_INCREMENT,
+     * `stock_id` VARCHAR(45) NULL,
+     * `stock_name` VARCHAR(45) NULL,
+     * `vip_id` VARCHAR(45) NULL,
+     * `vip_count` INT NULL,
+     * PRIMARY KEY (`id`),
+     * UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+     * UNIQUE INDEX `stock_id_UNIQUE` (`stock_id` ASC),
+     * UNIQUE INDEX `stock_name_UNIQUE` (`stock_name` ASC));
      */
 
     @Override
-    protected void consumLogic(Entry<Stock, Integer> entry) throws Exception{
+    protected void consumLogic(Entry<Stock, Integer> entry) throws Exception {
         Stock stock = entry.getKey();
         int k = entry.getValue();
         Connection connection = DatabaseAccessor.Holder.ACCESSOR.getConnection();

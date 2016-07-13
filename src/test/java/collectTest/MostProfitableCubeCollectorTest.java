@@ -65,6 +65,7 @@ public class MostProfitableCubeCollectorTest {
         List<Cube> cubes = collector.get();
         Assert.assertTrue(cubes.size() == orderSize);
     }
+
     private void doTest(MostProfitableCubeCollector.Market market) throws RemoteException {
         MostProfitableCubeCollector collector = new MostProfitableCubeCollector(market);
         List<Cube> cubes = collector.get();

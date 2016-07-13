@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 雪球最赚钱组合（Cube）收集器
  */
-public class MostProfitableCubeCollector extends  AbstractCollector<List<Cube>> {
+public class MostProfitableCubeCollector extends AbstractCollector<List<Cube>> {
 
     /**
      * 组合所在股市
@@ -81,11 +81,10 @@ public class MostProfitableCubeCollector extends  AbstractCollector<List<Cube>> 
 
 
     /**
-     *
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param market 组合所在市场
+     * @param market   组合所在市场
      * @param order_by 收益排序规则
-     * @param topK 排名前K的组合
+     * @param topK     排名前K的组合
      */
     public MostProfitableCubeCollector(TimeWaitingStrategy strategy, Market market, ORDER_BY order_by, int topK) throws RemoteException {
         super(strategy);
@@ -93,7 +92,7 @@ public class MostProfitableCubeCollector extends  AbstractCollector<List<Cube>> 
         this.market = market == null ? Market.CN : market;
         this.order_by = order_by == null ? ORDER_BY.MONTHLY : order_by;
 
-        if(topK <= 0) throw new IllegalArgumentException();
+        if (topK <= 0) throw new IllegalArgumentException();
         this.topK = Math.min(topK, CUBE_SIZE_SHRESHOLD);
 
     }

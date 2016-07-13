@@ -22,7 +22,7 @@ import java.util.*;
 /**
  * 股票 -> 龙虎榜数据 映射器
  */
-public class StockToLongHuBangMapper extends AbstractMapper <Stock, LongHuBangInfo> {
+public class StockToLongHuBangMapper extends AbstractMapper<Stock, LongHuBangInfo> {
 
 
     public StockToLongHuBangMapper() throws RemoteException {
@@ -40,7 +40,7 @@ public class StockToLongHuBangMapper extends AbstractMapper <Stock, LongHuBangIn
     @Override
     public LongHuBangInfo mapLogic(Stock stock) throws Exception {
 
-        if(stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyLongHuBangInfo;
+        if (stock == null || stock == EmptyObject.emptyStock) return EmptyObject.emptyLongHuBangInfo;
 
         Date date = stock.getStockQueryDate();
 

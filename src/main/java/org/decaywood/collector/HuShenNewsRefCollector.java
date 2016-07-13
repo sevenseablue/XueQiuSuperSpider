@@ -35,6 +35,7 @@ public class HuShenNewsRefCollector extends AbstractCollector<List<URL>> {
         IDEA("8");//投资理念
 
         private String topic;
+
         Topic(String str) {
             this.topic = str;
         }
@@ -57,14 +58,13 @@ public class HuShenNewsRefCollector extends AbstractCollector<List<URL>> {
     }
 
     /**
-     *
-     * @param strategy 超时等待策略（null则设置为默认等待策略）
+     * @param strategy  超时等待策略（null则设置为默认等待策略）
      * @param topicType 主题类型
      * @param pageEndTo 搜索页面数 从1到pageEndTo
      */
     public HuShenNewsRefCollector(TimeWaitingStrategy strategy, Topic topicType, int pageEndTo) throws RemoteException {
         super(strategy);
-        if(pageEndTo < 1)
+        if (pageEndTo < 1)
             throw new IllegalArgumentException();
 
         this.pageEndTo = Math.min(pageEndTo, MAX_PAGE_SIZE);
@@ -97,7 +97,7 @@ public class HuShenNewsRefCollector extends AbstractCollector<List<URL>> {
                         nodeList.add(node);
                         break;
                     } catch (Exception e) {
-                        if(!(e instanceof IOException)) throw e;
+                        if (!(e instanceof IOException)) throw e;
                         System.out.println("Collector: Network busy Retrying -> " + loopTime + " times");
                         updateCookie(webSite);
                         this.strategy.waiting(loopTime++);

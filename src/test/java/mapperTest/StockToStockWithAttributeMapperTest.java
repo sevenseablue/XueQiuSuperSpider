@@ -20,7 +20,7 @@ public class StockToStockWithAttributeMapperTest {
         List<Stock> industries = TestCaseGenerator.generateStocks();
         StockToStockWithAttributeMapper mapper = new StockToStockWithAttributeMapper();
         industries.stream().map(mapper)
-        .forEach(StockToStockWithAttributeMapperTest::checkNotNull);
+                .forEach(StockToStockWithAttributeMapperTest::checkNotNull);
     }
 
     @Test
@@ -66,7 +66,6 @@ public class StockToStockWithAttributeMapperTest {
         Assert.assertNotEquals(stock.getLast_close(), EmptyObject.emptyString);
 
     }
-
 
 
 }

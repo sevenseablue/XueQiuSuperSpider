@@ -28,7 +28,7 @@ public class LongHuBangInfo implements DeepCopy<LongHuBangInfo> {
 
         public BizsunitInfo(String bizsunitcode, String bizsunitname, String buyamt, String saleamt, String tradedate) {
 
-            if(StringUtils.nullOrEmpty(bizsunitcode, bizsunitname, buyamt, saleamt, tradedate))
+            if (StringUtils.nullOrEmpty(bizsunitcode, bizsunitname, buyamt, saleamt, tradedate))
                 throw new IllegalArgumentException();
 
             this.bizsunitcode = bizsunitcode;
@@ -83,7 +83,6 @@ public class LongHuBangInfo implements DeepCopy<LongHuBangInfo> {
     }
 
 
-
     public Stock getStock() {
         return stock;
     }
@@ -114,7 +113,7 @@ public class LongHuBangInfo implements DeepCopy<LongHuBangInfo> {
     //龙虎榜卖出是否有该营业部出现
     public boolean bizsunitInSaleList(String name, boolean partlySearch) {
         if (partlySearch) {
-           contains(topSaleList, name);
+            contains(topSaleList, name);
         }
         return topSaleList.contains(new BizsunitInfo("xx", name, "xx", "xx", "xx"));
     }

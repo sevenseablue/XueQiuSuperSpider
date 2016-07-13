@@ -40,7 +40,7 @@ public abstract class AbstractCollector<T> extends AbstractRemoteService impleme
 
     /**
      * @param strategy 超时等待策略（null则设置为默认等待策略）
-     * @param webSite 站点（默认为雪球网首页，可拓展其他财经网站--作用为获取cookie）
+     * @param webSite  站点（默认为雪球网首页，可拓展其他财经网站--作用为获取cookie）
      */
     public AbstractCollector(TimeWaitingStrategy strategy, String webSite) throws RemoteException {
         super(strategy, webSite);
@@ -67,7 +67,7 @@ public abstract class AbstractCollector<T> extends AbstractRemoteService impleme
                         needRMI = false;
                         break;
                     } catch (Exception e) {
-                        if(!(e instanceof IOException)) throw e;
+                        if (!(e instanceof IOException)) throw e;
                         System.out.println("Collector: Network busy Retrying -> " + loopTime + " times");
                         updateCookie(webSite);
                         this.strategy.waiting(loopTime++);
@@ -79,7 +79,7 @@ public abstract class AbstractCollector<T> extends AbstractRemoteService impleme
                 RemoteCollector proxy = (RemoteCollector) getRMIProxy();
                 //noinspection unchecked
                 res = (T) proxy.get();
-            } else if(rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
+            } else if (rmiMaster) throw new TimeoutException("Request Time Out, You've been Possibly Banned");
 
         } catch (Exception e) {
             e.printStackTrace();

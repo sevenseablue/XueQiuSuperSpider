@@ -15,8 +15,6 @@ public class QuotaHead extends AbstractQuotaNode {
     private String page = "1";
 
 
-
-
     @Override
     StringBuilder builderSelf() {
         StringBuilder builder = new StringBuilder("?");

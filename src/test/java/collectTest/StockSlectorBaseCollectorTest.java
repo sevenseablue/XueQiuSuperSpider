@@ -60,7 +60,6 @@ public class StockSlectorBaseCollectorTest {
     }
 
 
-
     @Test
     public void testBasicQuota1() throws RemoteException {
         StockSlectorBaseCollector collector = new StockSlectorBaseCollector();

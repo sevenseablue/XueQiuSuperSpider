@@ -7,11 +7,17 @@ import org.decaywood.utils.DateParser;
 import org.decaywood.utils.RequestParaBuilder;
 import org.decaywood.utils.URLMapper;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @author: decaywood
@@ -40,12 +46,12 @@ public class WallSCalendarMapper extends AbstractMapper<List<String>, String> {
         StringBuffer sb = new StringBuffer();
         List<String> dateLists = DateParser.intervalDays(dates.get(0), dates.get(1));
         System.out.println(dateLists);
-        for(int i=0; i<dateLists.size()-1; i++) {
+        for (int i = 0; i < dateLists.size() - 1; i++) {
             String target = URLMapper.WALLSTREETCN_CALENDAR.toString();
-            System.out.println(dateLists.get(i) + dateLists.get(i+1));
+            System.out.println(dateLists.get(i) + dateLists.get(i + 1));
             RequestParaBuilder builder = new RequestParaBuilder(target)
                     .addParameter("start", dateLists.get(i))
-                    .addParameter("end", dateLists.get(i+1));
+                    .addParameter("end", dateLists.get(i + 1));
             System.out.println(builder.build());
             URL url = new URL(builder.build());
             String json = request(url);
@@ -68,5 +74,43 @@ public class WallSCalendarMapper extends AbstractMapper<List<String>, String> {
         return sb.toString();
     }
 
+    private void writeFiles(String start, String end, String path) throws IOException, InterruptedException {
+        List<String> dateLists = DateParser.intervalDays(start, end);
+        BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+        StringBuffer sb = new StringBuffer();
 
+        for (int i = 0; i < dateLists.size() - 1; i++) {
+            System.out.println(dateLists.get(i));
+            String target = URLMapper.WALLSTREETCN_CALENDAR.toString();
+            RequestParaBuilder builder = new RequestParaBuilder(target)
+                    .addParameter("start", dateLists.get(i))
+                    .addParameter("end", dateLists.get(i + 1));
+            URL url = new URL(builder.build());
+            String json = request(url);
+            String string = dateLists.get(i) + "\t" + dateLists.get(i + 1) + "\t" + url.toString() + "\t" + json + "\n";
+
+            sb.append(string);
+            if (i % 30 == 0) {
+                bw.write(sb.toString());
+                sb.delete(0, sb.length());
+                bw.flush();
+            }
+            Thread.sleep(1100);
+        }
+        bw.write(sb.toString());
+        bw.flush();
+        sb.delete(0, sb.length());
+        System.out.println("out");
+        bw.close();
+    }
+
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        String start = "2014-11-17";
+        String end = "2014-11-22";
+        String path = "/work/data/wallstreetcn/calendar." + start + "." + end + ".txt";
+//        Files.write(Paths.get(path), )
+        WallSCalendarMapper wscm = new WallSCalendarMapper();
+        wscm.writeFiles(start, end, path);
+    }
 }
