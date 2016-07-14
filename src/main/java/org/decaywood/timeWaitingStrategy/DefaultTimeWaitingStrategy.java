@@ -26,9 +26,11 @@ public class DefaultTimeWaitingStrategy implements TimeWaitingStrategy {
      * @param retryTime            重试次数（超过次数抛出超时异常）
      */
     public DefaultTimeWaitingStrategy(final long timeWaitingThreshold, long timeWaiting, int retryTime) {
+        System.out.println("DefaultTimeWaitingStrategy.constructor.start");
         this.timeWaitingThreshold = timeWaitingThreshold;
         this.timeWaiting = timeWaiting;
         this.retryTime = retryTime;
+        System.out.println("DefaultTimeWaitingStrategy.constructor.end");
     }
 
 
