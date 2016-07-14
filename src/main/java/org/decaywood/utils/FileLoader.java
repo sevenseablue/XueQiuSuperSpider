@@ -90,6 +90,9 @@ public abstract class FileLoader {
         System.out.println(path);
         File file = new File(path);
         System.out.println(path);
+        if(rawPath.split("../", 12).length>10){
+            return null;
+        }
 
         if (!file.exists()) return loadFile(builder.append("../").toString() + rawPath, builder); //return null;//
         else return file;

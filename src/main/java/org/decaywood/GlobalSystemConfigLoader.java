@@ -79,7 +79,7 @@ public abstract class GlobalSystemConfigLoader {
      */
     private static void loadSystemConfig() {
 
-        File file = FileLoader.loadFile("/config.sys");
+        File file = FileLoader.loadFile("config.sys");
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             final String[] text = new String[1];
             while ((text[0] = reader.readLine()) != null) {
@@ -103,7 +103,7 @@ public abstract class GlobalSystemConfigLoader {
      */
     private static void loadRMIConfig() {
 
-        File file = FileLoader.loadFile("/config.rmi");
+        File file = FileLoader.loadFile("config.rmi");
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             final String[] text = new String[1];
             while ((text[0] = reader.readLine()) != null) {
