@@ -6,7 +6,7 @@ package org.decaywood.utils;
 public class FileLoaderTest {
     public static void main(String[] args) {
         final String COOKIE_FLUSH_PATH = "cookie/index.txt";
-        final String ROOT_PATH = FileLoaderTest.class.getClassLoader().getResource("").getPath();
+        final String ROOT_PATH = FileLoaderTest.class.getResource("").getPath();
         System.out.println(ROOT_PATH);
     }
 }
