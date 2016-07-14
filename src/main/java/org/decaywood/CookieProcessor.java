@@ -14,7 +14,7 @@ public interface CookieProcessor {
 
 
     default void updateCookie(String website) throws Exception {
-
+        System.out.println("CookieProcessor.updateCookie.start");
         GlobalSystemConfigLoader.loadConfig();
 
         String areacode = System.getProperty("areaCode");
@@ -41,12 +41,16 @@ public interface CookieProcessor {
             if (connection != null) connection.disconnect();
         }
 
+        System.out.println("CookieProcessor.updateCookie.end");
+
     }
 
     default HttpURLConnection login(String areacode,
                                     String userID,
                                     String passwd,
                                     boolean rememberMe) throws Exception {
+
+        System.out.println("CookieProcessor.login.start");
 
         areacode = areacode == null ? "86" : areacode;
         if (userID == null || passwd == null) {
@@ -60,6 +64,7 @@ public interface CookieProcessor {
                 .addParameter("remember_me", rememberMe ? "on" : "off");
 
         URL url = new URL(builder.build());
+        System.out.println("CookieProcessor.login.end");
         return (HttpURLConnection) url.openConnection();
     }
 

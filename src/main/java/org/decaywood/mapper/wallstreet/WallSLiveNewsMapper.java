@@ -94,8 +94,8 @@ public class WallSLiveNewsMapper extends AbstractMapper<String, String> {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        int start = 2130;
-        int end = 6470;
+        int start = 4220;
+        int end = 6480;
         String path = "/work/data/wallstreetcn/livenews." + start + "." + end + ".txt";
         WallSLiveNewsMapper wsnm = new WallSLiveNewsMapper();
         wsnm.writeFiles(start, end, path);

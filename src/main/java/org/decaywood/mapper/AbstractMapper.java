@@ -32,6 +32,7 @@ public abstract class AbstractMapper<T, R> extends AbstractRemoteService impleme
 
     public AbstractMapper(TimeWaitingStrategy strategy, String webSite) throws RemoteException {
         super(strategy, webSite);
+        System.out.println("AbstractMapper.constructor.end");
     }
 
     @Override
