@@ -88,8 +88,9 @@ public abstract class FileLoader {
     private static File loadFile(String rawPath, StringBuilder builder) {
         String path = ROOT_PATH + rawPath;
         File file = new File(path);
+        System.out.println(path);
 
-        if (!file.exists()) return loadFile(builder.append("../").toString() + rawPath, builder);
+        if (!file.exists()) return null;//return loadFile(builder.append("../").toString() + rawPath, builder);
         else return file;
     }
 
