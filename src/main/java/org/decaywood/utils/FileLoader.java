@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public abstract class FileLoader {
 
     private static final String COOKIE_FLUSH_PATH = "cookie/index.txt";
-    private static final String ROOT_PATH = FileLoader.class.getResource("").getPath();
+    private static final String ROOT_PATH = FileLoader.class.getClassLoader().getResource("").getPath();
 
     private static final Map<String, String> cookie = new ConcurrentHashMap<>();//多线程写状态，存在并发
 
