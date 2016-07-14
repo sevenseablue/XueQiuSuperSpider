@@ -58,7 +58,7 @@ public abstract class FileLoader {
         String path = ROOT_PATH + rawPath;
         File cookie = new File(path);
         String p;
-        if (!cookie.exists()) updateCookie(builder.append("../").toString() + rawPath, text, key, builder, append);
+        if (!cookie.exists()) updateCookie(builder.toString() + rawPath, text, key, builder, append);
         else {
 
             try {
@@ -94,7 +94,7 @@ public abstract class FileLoader {
             return null;
         }
 
-        if (!file.exists()) return loadFile(builder.append("../").toString() + rawPath, builder); //return null;//
+        if (!file.exists()) return loadFile(builder.toString() + rawPath, builder); //return null;//
         else return file;
     }
 
@@ -119,7 +119,7 @@ public abstract class FileLoader {
     }
 
     public static File loadFile(String rawPath) {
-        return loadFile(rawPath, new StringBuilder());
+        return loadFile(rawPath, new StringBuilder("../"));
     }
 
     public static String loadFileContent(String rawPath) {
