@@ -23,6 +23,7 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public abstract class AbstractRemoteService extends UnicastRemoteObject {
 
+
     static {
         /**
          * 加载全局配置
@@ -51,8 +52,11 @@ public abstract class AbstractRemoteService extends UnicastRemoteObject {
     public AbstractRemoteService(TimeWaitingStrategy strategy, String webSite) throws RemoteException {
         super();
         System.out.println("AbstractRemoteService.class.constructor.start");
+        System.out.println("AbstractRemoteService.class.webSite.start");
         this.webSite = webSite;
-        this.strategy = strategy == null ? new DefaultTimeWaitingStrategy() : strategy;
+        System.out.println("AbstractRemoteService.class.strategy.start");
+        this.strategy = (strategy == null ? new DefaultTimeWaitingStrategy() : strategy);
+        System.out.println("AbstractRemoteService.class.ObjectMapper.start");
         this.mapper = new ObjectMapper();
         System.out.println("AbstractRemoteService.class.constructor.end");
 
