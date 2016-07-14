@@ -31,6 +31,7 @@ public abstract class GlobalSystemConfigLoader {
     private static final List<Predicate<String>> filters;
 
     static {
+        System.out.println("GlobalSystemConfigLoader.static");
         filters = new ArrayList<>();
         filters.add(x -> x == null || x.trim().contains("##") || x.length() == 0);
         filters.add(x -> {
@@ -42,6 +43,7 @@ public abstract class GlobalSystemConfigLoader {
                 return true;
             } else return false;
         });
+        System.out.println("GlobalSystemConfigLoader.static");
     }
 
     /**
@@ -54,8 +56,9 @@ public abstract class GlobalSystemConfigLoader {
         if (loaded) return;
 
         loaded = true;
-
+        System.out.println("GlobalSystemConfigLoader.loadSystemConfig");
         loadSystemConfig();
+        System.out.println("GlobalSystemConfigLoader.loadRMIConfig");
         loadRMIConfig();
 
     }
@@ -80,6 +83,7 @@ public abstract class GlobalSystemConfigLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             final String[] text = new String[1];
             while ((text[0] = reader.readLine()) != null) {
+                System.out.println("loadSystemConfig" + text[0]);
                 if (filters.stream().noneMatch(x -> x.test(text[0]))) {
                     String[] kv = text[0].split("=");
                     String key = kv[0];
@@ -103,6 +107,7 @@ public abstract class GlobalSystemConfigLoader {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             final String[] text = new String[1];
             while ((text[0] = reader.readLine()) != null) {
+                System.out.println("loadRMIConfig" + text[0]);
                 if (filters.stream().noneMatch(x -> x.test(text[0]))) {
                     String[] kv = text[0].split("=");
                     String key = kv[0];
