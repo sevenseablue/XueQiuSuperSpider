@@ -87,6 +87,7 @@ public abstract class FileLoader {
      */
     private static File loadFile(String rawPath, StringBuilder builder) {
         String path = ROOT_PATH + rawPath;
+        System.out.println(path);
         File file = new File(path);
         System.out.println(path);
 
